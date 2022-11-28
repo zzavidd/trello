@@ -22,13 +22,16 @@ const emptyLists = lists!.filter((list) => {
   return !cards!.find((card) => card.idList === list.id);
 });
 
-await Promise.all(emptyLists.map((list) => {
-  return request(`/lists/${list.id}/closed`, { method: 'PUT', params: {
-    value: 'true'
-  } });
-}));
-
-console.info('Archived all empty lists.');
+if (Deno.args.includes('--dry-run')){
+  console.log(emptyLists);
+} else {
+  await Promise.all(emptyLists.map((list) => {
+    return request(`/lists/${list.id}/closed`, { method: 'PUT', params: {
+      value: 'true'
+    } });
+  }));
+  console.info('Archived all empty lists.');
+}
 
 async function request<T>(
   route: string,
