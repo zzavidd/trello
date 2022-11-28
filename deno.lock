@@ -1,0 +1,7 @@
+{
+  "version": "2",
+  "remote": {
+    "https://deno.land/std@0.165.0/dotenv/mod.ts": "b149416f0daa0361873097495d16adbb321b8bcb594dcc5cdb6bf9639fd173fd",
+    "https://deno.land/std@0.165.0/dotenv/util.ts": "6cc392f087577a26a27f0463f77cc0c31a390aa055917099935b36eb2454592d"
+  }
+}
